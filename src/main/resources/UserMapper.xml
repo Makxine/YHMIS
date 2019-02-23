@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+       PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+       "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射文件
+namespace:作为mapper文件的唯一标志
+ -->
+<mapper namespace="helloMapper">
+	<!-- 存放大量SQL -->
+	<!-- 查询user表所有数据 -->
+	<!-- select表示查询的SQL
+		id：本条SQL的唯一标志
+		resultType:结果封装的对象
+	 -->
+	<select id="findAll" resultType="User">
+		select * from user
+	</select>
+	
+	<!-- 根据id查询记录 
+		#{id}:动态获取值，id是属性名
+	-->
+	<select id="findOne" resultType="User">
+		select * from user where id=#{id}
+	</select>
+	
+	<!-- 查询总记录数 -->
+	<select id="count" resultType="int">
+		select count(*) from user	
+	</select>
+	
+	<!-- 新增一条记录 -->
+	<insert id="save">
+		insert into user values(null,#{name},#{addr},#{age})
+	</insert>
+	
+	<!-- 修改指定记录 -->
+	<update id="gengxin">
+		update user set name=#{name},addr=#{addr},age=#{age} where id=#{id}
+	</update>
+	
+	<!-- 删除记录 -->
+	<delete id="deleteOne">
+		delete from user where id=#{id}
+	</delete>
+</mapper>
+
+
+
+
+

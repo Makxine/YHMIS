@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- MyBatis的核心配置文件 -->
+<configuration>
+
+	<!-- 配置别名 -->
+	<typeAliases>
+		<typeAlias type="com.tedu.pojo.User" alias="User"/>
+	</typeAliases>
+	
+	<!-- 开发环境 
+		default:引用指定id的环境
+	-->
+	<environments default="dev">
+		<environment id="dev">
+			<!-- 数据源、事务 、映射文件-->
+			<!-- 事务交给jdbc来管理 -->
+			<transactionManager type="JDBC"></transactionManager>	
+			<!-- 数据源
+				type:池化的
+			 -->
+			<dataSource type="pooled">
+				<property name="driver" value="com.mysql.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://localhost:3306/mybatisdb?characterEncoding=utf-8"/>
+				<property name="username" value="root"/>
+				<property name="password" value="tarena"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- 引入映射文件 -->
+	<mappers>
+		<!-- 指定映射文件位置 -->
+		<mapper resource="UserMapper.xml"/>
+	</mappers>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</configuration>
